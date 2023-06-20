@@ -48,3 +48,22 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     endDateInput.value = '';
 });
 
+// Function to add trips
+function addTrip(destination, startDate, endDate) {
+    // Create a new trip object
+    let newTrip = {
+        destination: destination,
+        startDate: startDate,
+        endDate: endDate
+    };
+
+    // Add the new trip to the tripList array
+    tripList.push(newTrip);
+
+    // Call a function to handle displaying the trips
+    displayTrips(tripList);
+
+    // Save the updated tripList to local storage
+    localStorage.setItem('trips', JSON.stringify(tripList));
+}
+
