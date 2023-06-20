@@ -67,3 +67,22 @@ function addTrip(destination, startDate, endDate) {
     localStorage.setItem('trips', JSON.stringify(tripList));
 }
 
+// Function to display the trips
+function displayTrips(trips) {
+    // Get the element where the trip list will be displayed
+    let tripListElement = document.getElementById('tripList');
+
+    // Clear any existing content
+    tripListElement.innerHTML = '';
+
+    // Iterate over the trips array and generate HTML for each trip
+    trips.forEach(trip => {
+        let tripElement = document.createElement('li');
+        tripElement.textContent = `${trip.destination} - ${trip.startDate} to ${trip.endDate}`;
+
+        tripListElement.appendChild(tripElement);
+    });
+}
+
+// Call the displayTrips function initially to show any existing trips
+displayTrips(tripList);
