@@ -33,4 +33,18 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         return; // Abort adding the trip
     }
 
-})
+    // Ensure the end date is after the start date
+    if (new Date(endDate) <= new Date(startDate)) {
+        alert('End date must be after the start date.');
+        return; // Abort adding the trip
+    }
+
+    // Add the trip
+    addTrip(destination, startDate, endDate);
+
+    // Reset the trip input fields
+    destinationInput.value = '';
+    startDateInput.value = '';
+    endDateInput.value = '';
+});
+
